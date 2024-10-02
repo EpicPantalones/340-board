@@ -1,0 +1,57 @@
+Circuit: * C:\Users\ethan\Documents\GitHub\ecen340\LTSpice\receiver\receiver_1A.asc
+
+Direct Newton iteration for .op point succeeded.
+.step freq_lsr=1471
+.step freq_lsr=1724
+.step freq_lsr=2000
+.step freq_lsr=2273
+.step freq_lsr=2941
+.step freq_lsr=3333
+.step freq_lsr=3571
+.step freq_lsr=3846
+.step freq_lsr=4167
+
+
+Measurement: avgv
+  step	AVG(v(out))	FROM	TO
+     1	0.0127126	0	0.005
+     2	0.00116691	0	0.005
+     3	-0.0207142	0	0.005
+     4	0.00361375	0	0.005
+     5	0.00134078	0	0.005
+     6	0.00259542	0	0.005
+     7	-0.00446348	0	0.005
+     8	-0.0103942	0	0.005
+     9	-0.00235752	0	0.005
+
+Measurement: pout
+  step	PP(v(out))	FROM	TO
+     1	2.30452	0	0.005
+     2	2.42456	0	0.005
+     3	2.50558	0	0.005
+     4	2.61649	0	0.005
+     5	2.6187	0	0.005
+     6	2.55175	0	0.005
+     7	2.46742	0	0.005
+     8	2.36854	0	0.005
+     9	2.28168	0	0.005
+
+
+Date: Tue Oct  1 19:38:32 2024
+Total elapsed time: 3.341 seconds.
+
+tnom = 27
+temp = 27
+method = modified trap
+totiter = 15213
+traniter = 15209
+tranpoints = 7526
+accept = 4998
+rejected = 2528
+matrix size = 14
+fillins = 17
+solver = Normal
+Avg thread counts: 1.4/1.8/1.8/1.4
+Matrix Compiler1: 2.63 KB object code size  1.1/0.6/[0.6]
+Matrix Compiler2: 1.68 KB object code size  0.4/0.4/[0.3]
+

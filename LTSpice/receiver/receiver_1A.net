@@ -1,0 +1,39 @@
+* C:\Users\ethan\Documents\GitHub\ecen340\LTSpice\receiver\receiver_1A.asc
+In1 vp N006 1m AC 1
+In2 vp N006 SINE(0 400n 60) AC 1
+In3 vp N006 SINE(0 400n 40k) AC 1
+Is vp N006 SINE(0 40n {freq_Lsr}) AC 1
+Vsupply N005 vn SINE(3.3 30m 2632)
+R5 vp 0 1k
+R6 0 vn 1k
+C3 vp 0 1m
+C4 0 vn 1m
+C5 0 vn 100n
+C6 vp 0 100n
+XU1 0 N001 vp vn N002 level2 Avol=25k GBW=1Meg Slew=0.6Meg Ilimit=6m Rail=25m Vos=0 En=0 Enk=0 In=0 Ink=0 Rin=500Meg
+R2 N002 N001 {RL}
+R7 N006 vn 2.5k
+C2 N002 N001 {CL}
+R1 N007 N006 {RH}
+C1 N001 N007 {CH}
+XU2 0 N004 vp vn out level2 Avol=25k GBW=1Meg Slew=0.6Meg Ilimit=6m Rail=25m Vos=0 En=0 Enk=0 In=0 Ink=0 Rin=500Meg
+R3 out N004 {RL}
+C7 out N004 {CL}
+C8 N004 N008 {CH}
+R4 N008 N002 {RH}
+R8 vp N003 100
+R9 N003 N005 100
+C9 N003 vn 1µ
+.tran 5ms
+.step param freq_Lsr list 1471 1724 2000 2273 2941 3333 3571 3846 4167
+.meas avgV avg V(out)
+;meas psrc pp V(vp)
+.meas pout pp V(out)
+.param CL=0.05nF
+.param RL=200k
+.param CH=100nF
+.param RH 1k
+* .ac dec 0.01 100k 10\n.param freq_Lsr 1471\n.meas ac maxgain max mag(v(out))\n.meas ac low_corner find freq when mag(v(out))=maxgain/sqrt(2)\n.mease ac high_corner find freq when mag(v(out))=maxgain/sqrt(2) cross=2
+.lib UniversalOpAmp2.lib
+.backanno
+.end
