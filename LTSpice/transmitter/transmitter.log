@@ -2,8 +2,8 @@ Circuit: * C:\Users\ethan\OneDrive\Documents\GitHub\340-board\LTSpice\transmitte
 
 Direct Newton iteration for .op point succeeded.
 
-Date: Wed Oct 02 08:31:58 2024
-Total elapsed time: 0.096 seconds.
+Date: Wed Oct 02 08:39:43 2024
+Total elapsed time: 0.109 seconds.
 
 tnom = 27
 temp = 27
@@ -17,5 +17,5 @@ matrix size = 11
 fillins = 0
 solver = Normal
 Matrix Compiler1: 476 bytes object code size  0.1/0.1/[0.1]
-Matrix Compiler2: 779 bytes object code size  0.1/0.2/[0.1]
+Matrix Compiler2: 779 bytes object code size  0.1/0.1/[0.1]
 
