@@ -70,3 +70,5 @@ The transmitter layout is a simple circuit powered by a 3.3V supply. There are 8
 ## Altium Design
 
 Our Altium design takes all the elements described above, and creates one PCB that we can use to drive our transmitter and receiver. the Only difference between the PCB layout is that we now have a 4 pin connector for all the inputs that we will use in our design, along with some test points to measure thigns, and two that both the transmitter and receiver are now in the form factor that is used on the actual laser tag communication link.
+
+![image of the PCB](image/Altium.png)
