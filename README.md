@@ -67,6 +67,12 @@ This is a plot of the FFT of our signal, with each laser frequncy being measured
 
 The transmitter layout is a simple circuit powered by a 3.3V supply. There are 8.35 ohms of resistance at the drain of the MOSFET and 330 ohms of resistance at the gate. This circuit ensures that the current through our diode stays at 100 mA and the current through the gate always stays less than 10 mA.
 
+## Transmitter Update Post-Lab 4
+
+After completing Lab 4, we realized that our simulation model of our LED was inaccurate, so with our new values of N, RS, and IS we determined that a better value for our series resistor would be 8.9 ohms instead of 8.35. Below is our updated schematic with these changes.
+
+![image of the updated transmitter](image/transmitter_updated.png)
+
 ## Altium Design
 
 Our Altium design takes all the elements described above, and creates one PCB that we can use to drive our transmitter and receiver. the Only difference between the PCB layout is that we now have a 4 pin connector for all the inputs that we will use in our design, along with some test points to measure thigns, and two that both the transmitter and receiver are now in the form factor that is used on the actual laser tag communication link.
