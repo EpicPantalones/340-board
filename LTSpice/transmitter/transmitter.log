@@ -1,14 +1,14 @@
-Circuit: * C:\Users\ethan\OneDrive\Documents\GitHub\340-board\LTSpice\transmitter\transmitter.asc
+Circuit: * C:\users\epicpantalones\My Documents\340-board\LTSpice\transmitter\transmitter.asc
 
 Direct Newton iteration for .op point succeeded.
 
-Date: Wed Oct 02 08:39:43 2024
-Total elapsed time: 0.109 seconds.
+Date: Mon Dec 02 14:56:16 2024
+Total elapsed time: 0.195 seconds.
 
 tnom = 27
 temp = 27
 method = modified trap
-totiter = 6077
+totiter = 6075
 traniter = 6068
 tranpoints = 3031
 accept = 3031
@@ -16,6 +16,6 @@ rejected = 0
 matrix size = 11
 fillins = 0
 solver = Normal
-Matrix Compiler1: 476 bytes object code size  0.1/0.1/[0.1]
-Matrix Compiler2: 779 bytes object code size  0.1/0.1/[0.1]
+Matrix Compiler1: 476 bytes object code size  1.5/1.4/[1.4]
+Matrix Compiler2: 779 bytes object code size  2.0/1.5/[1.4]
 
