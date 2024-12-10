@@ -67,8 +67,54 @@ This is a plot of the FFT of our signal, with each laser frequncy being measured
 
 The transmitter layout is a simple circuit powered by a 3.3V supply. There are 8.35 ohms of resistance at the drain of the MOSFET and 330 ohms of resistance at the gate. This circuit ensures that the current through our diode stays at 100 mA and the current through the gate always stays less than 10 mA.
 
+## Transmitter Update Post-Lab 4
+
+After completing Lab 4, we realized that our simulation model of our LED was inaccurate, so with our new values of N, RS, and IS we determined that a better value for our series resistor would be 8.9 ohms instead of 8.35. Below is our updated schematic with these changes.
+
+![image of the updated transmitter](image/transmitter_updated.png)
+
 ## Altium Design
 
 Our Altium design takes all the elements described above, and creates one PCB that we can use to drive our transmitter and receiver. the Only difference between the PCB layout is that we now have a 4 pin connector for all the inputs that we will use in our design, along with some test points to measure thigns, and two that both the transmitter and receiver are now in the form factor that is used on the actual laser tag communication link.
 
 ![image of the PCB](image/Altium.png)
+
+## Building the actual board
+
+### Soldering the Board
+
+We received our PCB from JCL, and they looked really good. Here is an image of our PCB after doing the soldering:
+
+IMAGE OF THE SOLDERING
+
+There were a few problems that we had to solve before we were able to test it though. First, we realized that on our LTSpice schematic we had changed R7 to a 2.5k resistor, but our breadboard had a two resistors that added to 2.3k. We tested it virtually and decided that this change was not significant to the board as a whole, so we simply kept the 2.5k resistor design that was on the PCB already.
+
+Another change we had to make though, was our transmitter design. We had designed our PCB for a resistance of 8.35 ohms as shown in our original tranmitter image. However, this was made with a couple resistors together in parallel and series. The problem was though, that now that we had updated the model and found a resistance of 8.9 ohms, the only way to get that specific resistance was to put 4 resitors together in a 2x2 configuration, and we had only given ourselves space for 1 resistor on the board. We were able to fix that with some magical soldering though, and its pictured here:
+
+IMAGE OF MEGA-JANK 1.0
+
+### Testing the Receiver
+
+With all the components soldered together, we were ready to test. Just like with the breadboard test, the receiver worked! Here's a picture of our plotted results on some online grapher, since we don't have the actual image itself.
+
+IMAGE OF THE CSV PLOTTED
+
+ This was very exciting. However, we had one big problem - the transmitter didn't turn on.
+
+### Fixing the Transmitter
+
+#### Connection Issues
+
+We quickly realized that our transmitter wasn't connected to the right ground. Our Altium design connected the "ground" on the transmitter to the "gorund" on the receiver. We had forgotten to account for the fact that our receiver was using a virtual ground, which meant the voltage difference between the gate (and drain) and the source was only half of what we expected. To fix this, we would actally have to cut the trace and create our own. I created this image to show what we had to do:
+
+![image of the PCB with our fix in green](image/Altium_fix.png)
+
+This was luckily not very hard to do. As pictured with the additional green lines, we cut the trace on the X. We then added a wire that more or less followed the line in the image to connect the source of the transistor to the R6 pin which connected to our negative 3.3 line. When we tested the transmitter after that, it worked! but it gave us a current of 86mA, another problem to solve.
+
+#### Resistance Issues
+
+To fix the new issue, we first tried to see if we could simply replace one of the four resistors with a wire such that the resistance dropped to the right number. our current setup was a 2x2: 20+20 || 1+10. We knew that the 20s wouldn't really be of help to remove here, so we tried covering the 1ohm and the 10ohm. changing the 1ohm brought us up only about 2mA, but when we tried the covering the 10ohm, we saw the current jump to 130mA. Becuase the new resistance without the 10ohm was just under 1 (20+20 || 1) we realized that our resistance needed to be somewhere between 1 and 8. The simplest way to know? Well if we learned anything from LTSpice it was that .step functions work better than math sometimes. So, we took out all four resistors and soldering in two female headers. We then twisted together 1 ohm resistors and increased the resistance by 1 ohm until it gave us the right number (which turned out to be 6ohm). Finally, we soldered the chain of resistors together, took out the headers, and soldered them to the board. Here a picture of our final "resistor rainbow":
+
+IMAGE OF MEGA-JANK 2.0
+
+## Conclusion
