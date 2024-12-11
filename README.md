@@ -77,6 +77,8 @@ After completing Lab 4, we realized that our simulation model of our LED was ina
 
 Here is the data from our breadboard for our receiver! as you can see, its actually working so well it clips! This is totall fine for our use case.
 
+After building our transmitter breadboard, our LED was not turning on because not enough voltage was dropping across it. We eventually realized that this was because we had tied the diode and the transistor gate to the same ground, -3.3V. To fix this we tied the diode to neutral ground and then our transmitter worked with 100 mA.
+
 ![image of the breadboard's csv data](image/breadboard_data.png)
 
 ## Altium Design
